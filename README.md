@@ -20,7 +20,6 @@ The project demonstrates expertise in data wrangling, SQL analysis, and business
 - [📊 Tools & Stacks](#-tools--stacks)
 - [🔁 End-to-End Workflow](#-end-to-end-workflow)
 - [🧹Data Preparation (Excel) & EDA in Python](#data-preparation-excel--eda-in-python)
-- [🗂 Lookup & Fact Tables Description](#-lookup--fact-tables-description)
 - [🗃 SQL-Based Exploration](#sql-based-exploration) 
 - [📈 Power BI Interactive Dashboard](#powerbi-interactive-dashboard)
 - [⚙ How to Use This Project](#-how-to-use-this-project)
@@ -70,3 +69,34 @@ graph LR
 
 Each stage seamlessly builds upon the previous one, resulting in a streamlined, production-ready pipeline that transforms raw, unstructured data into meaningful, actionable insights.
 
+---
+
+## 🧹 Data Preparation
+**Excel Processing:**
+
+### ✅ Step 1: Raw Data (Raw_data.xlsx)
+- Contains columns like `Transaction_Id`, `User_Name`, `Age`, `Country`, `Product_Category`, etc.
+- This is the simulated export from Ecommerce.
+
+![Raw Excel Data](Images/Ecommerce%20raw%20data.jpg)
+
+### ✅ Step 2: Split Transaction_date & created age group column 
+- Split `Transaction_Date` into **Year** and **Month** columns.
+- Converted numeric month to month names.
+- Created **Age Group** categories (Youth, Adult, Senior) based on `Age`.
+
+  
+These were calculated using **Excel formulas**:
+
+
+| Formula | Purpose |
+|--------|---------|
+| `Year(Transaction_Date)` | Split Transaction_date into year |
+| `Month(Transaction_Date)` | Split Transaction_date into month (in date) |
+| `Text(date,''mmmm'')` | Split Transaction_date into month (in text) |
+| `=IF(B2<25, "Youth", IF(B2<45, "Adult", "Senior"))` | Assign Age group |
+
+
+![Cleaned Excel Data](Images/Cleaned_ecommerce.jpg)
+
+**EDA in Python**
