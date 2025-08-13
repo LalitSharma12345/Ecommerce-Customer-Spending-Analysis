@@ -27,3 +27,46 @@ The project demonstrates expertise in data wrangling, SQL analysis, and business
 - [📂 Repository Structure](#-repository-structure)
 - [📝 License](#-license)
 - [📬 About Me](#-about-me)
+
+---
+
+## 🎯 Project Objective
+
+This project analyzes customer spending behavior on an e-commerce platform.   to identify top customers, best product categories, and payment preferences.
+It covers **Excel preprocessing, Python data analysis, MySQL queries, and Power BI dashboards** to create actionable business insights.
+
+
+---
+
+## 📌 Business Objective
+
+- Understand **spending patterns** across customer segments.  
+- Understanding **product category performance**.
+- Detecting **payment method preferences** by groups.
+- Creating **interactive visual tools** for quick decision-making.
+
+---
+
+## 📊 Tools & Stacks
+
+| Tool        | Purpose                                                                  |
+|-------------|-----------------------------------------------------------------         |
+| **Excel**   | Initial cleaning, date splitting (Year, Month), and Age Group creation.  |
+| **Python**  | EDA and visualization                                                    |
+| **MySQL**   | Data storage and advanced queries                                        |
+| **Power BI**| Interactive dashboard design and data storytelling                       |
+
+---
+
+## 🔁 End-to-End Workflow
+
+```mermaid
+graph LR
+    A[Raw Excel] --> B[Excel Formulas]
+    B --> C[Python Script]
+    C --> D[MySQL Database]
+    D --> E[Power BI Dashboard]
+```
+
+Each stage seamlessly builds upon the previous one, resulting in a streamlined, production-ready pipeline that transforms raw, unstructured data into meaningful, actionable insights.
+
