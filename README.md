@@ -11,4 +11,19 @@ The process covers data cleaning, preprocessing, exploratory analysis, SQL-based
 
 The project demonstrates expertise in data wrangling, SQL analysis, and business intelligence reporting. It serves as a strong portfolio example for aspiring and professional data analysts.
 
+---
 
+## 📘 Project Framework
+
+- [🎯 Project Objective](#-project-objective)
+- [📌 Business Objective](#-business-objective)
+- [📊 Tools & Stacks](#-tools--stacks)
+- [🔁 End-to-End Workflow](#-end-to-end-workflow)
+- [🧹Data Preparation (Excel) & EDA in Python](#data-preparation-excel--eda-in-python)
+- [🗂 Lookup & Fact Tables Description](#-lookup--fact-tables-description)
+- [🗃 SQL-Based Exploration](#sql-based-exploration) 
+- [📈 Power BI Interactive Dashboard](#powerbi-interactive-dashboard)
+- [⚙ How to Use This Project](#-how-to-use-this-project)
+- [📂 Repository Structure](#-repository-structure)
+- [📝 License](#-license)
+- [📬 About Me](#-about-me)
