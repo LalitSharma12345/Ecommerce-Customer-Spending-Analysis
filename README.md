@@ -99,4 +99,15 @@ These were calculated using **Excel formulas**:
 
 ![Cleaned Excel Data](Images/Cleaned_ecommerce.jpg)
 
-**EDA in Python**
+---
+
+## 🧹 EDA in Python 
+
+**Python Processing:**
+- Checked for missing values and outliers.
+- Verified data types and formatting.
+- Generated exploratory visualizations for quick insights.
+
+![EDA in Python](Ecommerce-Customer-Spending-Analysis/blob/main/blob/main/blob/main/python%201.pdf)
+
+
