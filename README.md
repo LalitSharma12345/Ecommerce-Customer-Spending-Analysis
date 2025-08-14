@@ -19,9 +19,9 @@ The project demonstrates expertise in data wrangling, SQL analysis, and business
 - [📌 Business Objective](#-business-objective)
 - [📊 Tools & Stacks](#-tools--stacks)
 - [🔁 End-to-End Workflow](#-end-to-end-workflow)
-- [🧹Data Preparation (Excel) & EDA in Python](#data-preparation-excel--eda-in-python)
-- [🗃 SQL-Based Exploration](#sql-based-exploration) 
-- [📈 Power BI Interactive Dashboard](#powerbi-interactive-dashboard)
+- [🧹 Excel + Python Processing](#-excel--python-processing)
+- [🗃 SQL-Based Exploration](#-sql-based-exploration)  
+- [📈Power BI Interactive Dashboard](#-power-bi-interactive-dashboard)  
 - [⚙ How to Use This Project](#-how-to-use-this-project)
 - [📂 Repository Structure](#-repository-structure)
 - [📝 License](#-license)
@@ -71,7 +71,7 @@ Each stage seamlessly builds upon the previous one, resulting in a streamlined, 
 
 ---
 
-## 🧹 Data Preparation
+## 🧹 Excel + Python Processing
 **Excel Processing:**
 
 ### ✅ Step 1: Raw Data (Raw_data.xlsx)
@@ -80,7 +80,7 @@ Each stage seamlessly builds upon the previous one, resulting in a streamlined, 
 
 ![Raw Excel Data](Images/Ecommerce%20raw%20data.jpg)
 
-### ✅ Step 2: Split Transaction_date & created age group column 
+### ✅ Step 2: Split Transaction_Date & created Age group column 
 - Split `Transaction_Date` into **Year** and **Month** columns.
 - Converted numeric month to month names.
 - Created **Age Group** categories (Youth, Adult, Senior) based on `Age`.
@@ -108,6 +108,173 @@ These were calculated using **Excel formulas**:
 - Verified data types and formatting.
 - Generated exploratory visualizations for quick insights.
 
-![EDA in Python](Ecommerce-Customer-Spending-Analysis/blob/main/blob/main/blob/main/python%201.pdf)
+[Click here to view the PDF](https://github.com/PalakJain-Analytics/Ecommerce-Customer-Spending-Analysis/blob/main/python%201.pdf)
 
+---
+
+## 🗃 SQL Based Exploration
+Key queries performed in MySQL:
+
+select * from cleaned_ecommerce;
+
+1. **Top Spending Age Group by Country**
+```sql
+SELECT Age_group, Country, SUM(Purchase_Amount) AS Total_Spend
+FROM cleaned_ecommerce
+GROUP BY Age_group, Country
+ORDER BY Total_Spend DESC;
+```
+2. **Preferred Payment Method by Age Group**
+```sql
+SELECT Age_group, Payment_Method, COUNT(*) AS Preference
+FROM cleaned_ecommerce
+GROUP BY Age_group, Payment_Method;
+```
+3. **Top Product Categories by Country**
+```sql
+SELECT Country, Product_Category, SUM(Purchase_Amount) AS Total_Spent
+FROM cleaned_ecommerce
+GROUP BY Country, Product_Category
+ORDER BY Total_Spent DESC
+LIMIT 3;
+```
+
+4. **Seasonal Trends**
+```sql
+SELECT Year, Month_in_text, SUM(Purchase_Amount) AS Total_purchase
+FROM cleaned_ecommerce
+GROUP BY Year, Month_in_text
+ORDER BY Total_purchase DESC;
+```
+
+5. **Top 5 Customers by Lifetime Purchase**
+```sql
+SELECT User_Name, SUM(Purchase_Amount) AS Total_Spent
+FROM cleaned_ecommerce
+GROUP BY User_Name
+ORDER BY Total_Spent DESC
+LIMIT 5;
+```
+
+6. **Category-wise Monthly Trend**
+```sql
+SELECT Month_in_text, Product_Category, SUM(Purchase_Amount) as Total_Spent
+FROM cleaned_ecommerce
+GROUP BY Month_in_text, Product_Category
+ORDER BY Month_in_text desc;
+```
+
+7. **Age Group that Spends the Most (in average)**
+```sql
+SELECT Age_group, AVG(Purchase_Amount) as Avg_Spend
+FROM cleaned_ecommerce
+GROUP BY Age_group
+ORDER BY Avg_Spend DESC;
+```
+### 📘 Schema Screenshot
+
+![Schema Screenshot](Images/MySQL%20(1).jpg)
+![Schema Screenshot](Images/MySQL%20(2).jpg)
+![Schema Screenshot](Images/MySQL%20(3).jpg)
+
+---
+
+## 📈 Power BI Interactive Dashboard
+
+Connected Cleaned_ecommerce csv file to Power Bi and created an interactive dashboard.
+
+The interactive dashboard includes:
+
+1. **Cards**: Total Spending, Total Customers, Top Country, Top Category.
+2. **Filters**: Year, Month, Customer Age Group.
+3. **Visuals**:
+   - **Top 3 Countries by Spending** (Treemap)
+   - **Payment Method Distribution** (Donut Chart)
+   - **Age Group vs Spending** (Bar Chart)
+   - **Spending Trend Over Months** (Line Chart)
+   - **Total Spend by Product Category & Year** (Clustered Column Chart)
+
+![Power BI Dashboard](Images/Ecommerce%20Customer%20Spending%20Data%20Analysis%20.jpg)
+
+These enable filtering, aggregation, and time-based visualizations.
+
+---
+
+## ⚙ How to Use This Project
+
+### 🔹 1. Clone the Repo
+```bash
+git clone https://github.com/PalakAnalyst/Ecommerce-Customer-Spending-Analysis.git
+```
+
+### 🔹 2. Open Excel Files
+- View and understand `Ecommerce_raw data.xlsx`, CSVs
+- Optionally edit and export again using Excel formulas
+
+### 🔹 3. Open Jupyter Notebook
+- Execute the Python notebook for EDA
+
+### 🔹 4. Set Up MySQL
+- Import all `.csv` using MySQL Workbench
+- Run the MySQL scripts against your database
+
+### 🔹 5. Open Power BI Dashboard
+- Use `Ecommerce.pbix` to view interactive report
+- Or connect manually via: `Home → Get Data → Excel Workbook`
+
+---
+
+## 📂 Repository Structure
+
+```
+📦 Ecommerce-Customer-Spending-Analysis
+ ┣ 📄 Ecommerce_raw data.csv
+ ┣ 📄 Cleaned_ecommerce.csv
+ ┣ 📄 Age group.csv
+ ┣ 📄 Years and months.csv
+ ┣ 📄 Ecommerce.ipynb
+ ┣ 📄 python 1.pdf
+ ┣ 📄 Ecommerce.sql
+ ┣ 📄 MYSQL(1).pdf
+ ┣ 📄 Ecommerce.pbix
+ ┣ 📁 images
+ ┃ ┣ 📷 Ecommerce raw dat.jpg
+ ┃ ┣ 📷 Cleaned ecommerce.jpg
+ ┃ ┣ 📷 Age group.jpg
+ ┃ ┣ 📷 Years and months.jpg
+ ┃ ┣ 📷 Python 1.jpg
+ ┃ ┣ 📷 Python 2.jpg
+ ┃ ┣ 📷 Python 3.jpg
+ ┃ ┣ 📷 Python 4.jpg
+ ┃ ┣ 📷 Python 5.jpg
+ ┃ ┣ 📷 Python 6.jpg
+ ┃ ┣ 📷 Python 7.jpg
+ ┃ ┣ 📷 Python 8.jpg
+ ┃ ┣ 📷 Python 9.jpg
+ ┃ ┣ 📷 Python 10.jpg
+ ┃ ┣ 📷 MySQL (1).jpg
+ ┃ ┣ 📷 MySQL (2).jpg
+ ┃ ┣ 📷 MySQL (3).jpg
+ ┃ ┣ 📷 Ecommerce Customer Spending Data Analysis.jpg
+ ┣ 📄 LICENSE
+ ┗ 📄 README.md
+```
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** — you are free to use, modify, and share with attribution.
+
+---
+
+## 📬 About Me
+
+I'm **Palak Jain**, an enthusiastic and detail-oriented data analyst with strong academic knowledge and hands-on internship experience.
+experience in data analysis, visualisation, and reporting. Proficient in SQL, Excel, Python, Tableau, and
+Power BI. 
+
+- [LinkedIn](https://www.linkedin.com/in/palakjainanalyst/)
+- [GitHub](https://github.com/PalakJainAnalyst)
+
+If you found this project helpful, consider giving it a ⭐ to show your support!
 
